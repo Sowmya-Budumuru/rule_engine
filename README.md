@@ -1,10 +1,7 @@
 # rule_engine application
 
-## Overview:
-This project is a 3-tier rule engine application that uses an Abstract Syntax Tree (AST) to determine user eligibility based on attributes like age, department, income, spend, etc. The rule engine supports the dynamic creation, combination, and evaluation of rules.
-
 ## Description
-The Rule Engine Application is a flexible tool designed to evaluate user eligibility based on various attributes such as age, department, income, and spending. It allows users to create rules using logical expressions and assess whether specific user attributes meet those conditions.
+The Rule Engine Application is a flexible tool designed to evaluate user eligibility based on various attributes such as age, department, income, and spending. It allows users to create rules using logical expressions and assess whether specific user attributes meet those conditions. The rule engine supports the dynamic creation, combination, and evaluation of rules.
 
 ### Prerequisites
 Before we begin, we should have the following installed on our system:
