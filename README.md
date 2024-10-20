@@ -3,7 +3,7 @@
 ## Description
 The Rule Engine Application is a flexible tool designed to evaluate user eligibility based on various attributes such as age, department, income, and spending. It allows users to create rules using logical expressions and assess whether specific user attributes meet those conditions. The rule engine supports the dynamic creation, combination, and evaluation of rules.
 
-### Prerequisites
+## Prerequisites
 Before we begin, we should have the following installed on our system:
 
 1. **Python 3.x**: Download it from [python.org](https://www.python.org/downloads/).
@@ -30,13 +30,13 @@ rule_engine/
 **Create a Rule**
   from rules import create_rule
 
-# Create a new rule
+**Create a new rule**
 rule = create_rule("age > 18 and income < 50000")
 
 **Evaluate a Rule**
 from rules import evaluate_rule
 
-# Define user attributes
+**Define user attributes**
 user_attributes = {
     'age': 20,
     'income': 30000,
@@ -44,7 +44,7 @@ user_attributes = {
     'spend': 1000
 }
 
-# Evaluate the rule
+**Evaluate the rule**
 result = evaluate_rule(user_attributes)
 
 print("Eligibility:", result)  # Output: Eligibility: True or False
