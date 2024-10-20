@@ -55,6 +55,7 @@ user_attributes = {
 
 # Evaluate the rule
 result = evaluate_rule(user_attributes)
+
 print("Eligibility:", result)  # Output: Eligibility: True or False
 
 # Testing:
