@@ -17,7 +17,7 @@ Before we begin, we should have the following installed on our system:
 
 ## Folder Structure and Files
 rule_engine/
-    **app.py** : Main Flask application file.
+    **app.py** : Main Flask application file.      
     **models.py** : Defines the database schema and models.
     **rules.py** : Contains functions for creating and evaluating rules.
 
