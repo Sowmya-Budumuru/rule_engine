@@ -3,11 +3,27 @@
 ## Description
 The Rule Engine Application is a flexible tool designed to evaluate user eligibility based on various attributes such as age, department, income, and spending. It allows users to create rules using logical expressions and assess whether specific user attributes meet those conditions. The rule engine supports the dynamic creation, combination, and evaluation of rules.
 
+The project structure is organized as follows:
+
+rule-engine-app/  
+├── app.py             # Main entry point for the application  
+├── models.py          # Database models and ORM configuration  
+├── rules.py           # Rule processing logic  
+├── config.py          # Configuration settings for the application  
+├── templates/         # HTML templates for the UI  
+├── static/            # Static files (CSS, JavaScript)  
+├── requirements.txt   # List of dependencies  
+├── README.md          # Project documentation  
+└── .env               # Environment variables (not included in version control)  
+
 ## Prerequisites
 Before we begin, we should have the following installed on our system:
 
 1. **Python 3.x**: Download it from [python.org](https://www.python.org/downloads/).
 2. **pip**: This is the package installer for Python.
+3. SQLite (included with Python by default)
+4. pip for managing Python packages
+5. Basic understanding of Flask and SQLAlchemy
 
 ## Features
 - **Rule Creation** : Define rules using logical expressions (e.g., "age > 18 and income < 50000").
@@ -27,14 +43,44 @@ rule_engine/
     **evaluate_rule(json_data)** : Evaluates the combined rule against the provided data.
 
 # Usage:
-**Create a Rule**
-  from rules import create_rule
+Usage
+Rule Creation
+Define a Rule: Rules are created with conditional expressions based on user attributes such as age, department, income, and spend.
 
-**Create a new rule**
-rule = create_rule("age > 18 and income < 50000")
+Rule Format:
 
-**Evaluate a Rule**
-from rules import evaluate_rule
+Rules are represented using a JSON-like structure.
+The rule logic uses operators like ==, >, <, AND, OR, etc.
+Example rule:
+
+{
+    "condition": "AND",
+    "rules": [
+        {
+            "field": "age",
+            "operator": ">",
+            "value": 30
+        },
+        {
+            "field": "income",
+            "operator": ">=",
+            "value": 50000
+        }
+    ]
+}
+Evaluating a Rule
+To evaluate a rule, pass the user attributes to the evaluation endpoint. The rule engine will parse the AST representation of the rule and determine if the user meets the conditions.
+
+Example:
+
+json
+Copy code
+{
+    "age": 35,
+    "department": "Engineering",
+    "income": 60000,
+    "spend": 15000
+}
 
 **Define user attributes**
 user_attributes = {
