@@ -3,6 +3,7 @@
 ## Description
 The Rule Engine Application is a flexible tool designed to evaluate user eligibility based on various attributes such as age, department, income, and spending. It allows users to create rules using logical expressions and assess whether specific user attributes meet those conditions. The rule engine supports the dynamic creation, combination, and evaluation of rules.
 
+## Project Structure:
 The project structure is organized as follows:
 
 rule-engine-app/  
@@ -123,15 +124,15 @@ The rule engine application uses SQLite, a lightweight, file-based relational da
   **Run migrations** : flask db upgrade
   **Start the Flask development server** : flask run  {#output: * Running on http://127.0.0.1:5000}
 
-## Deployment
-**Docker** : Use a Dockerfile to containerize the application for easy deployment.
-**Cloud Services** : Deploy using services like AWS, Google Cloud, or Azure.
-**Web Server Configuration** : Use Nginx or Apache as a reverse proxy with Gunicorn for production deployment.
+## Deployment  
+**Docker** : Use a Dockerfile to containerize the application for easy deployment.  
+**Cloud Services** : Deploy using services like AWS, Google Cloud, or Azure.  
+**Web Server Configuration** : Use Nginx or Apache as a reverse proxy with Gunicorn for production deployment.  
   
 
-## Security Measures:
-**Input Validation** : The application performs validation on user inputs to prevent invalid data entry.
-**Data Protection** : Sensitive information is handled securely, and proper authentication should be considered if this application is used in a web environment.
+## Security Measures:  
+**Input Validation** : The application performs validation on user inputs to prevent invalid data entry.  
+**Data Protection** : Sensitive information is handled securely, and proper authentication should be considered if this application is used in a web environment.  
 
 ## Performance Optimizations:
 **Efficient Rule Evaluation** : The rule engine is optimized for quick evaluations by using efficient algorithms to parse and assess rules against user attributes.  
