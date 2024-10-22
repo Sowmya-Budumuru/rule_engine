@@ -68,20 +68,46 @@ Example rule:
     ]
 }
 
+## Evaluating a Rule
+To evaluate a rule, pass the user attributes to the evaluation endpoint. The rule engine will parse the AST representation of the rule and determine if the user meets the conditions.
 
+Example:
 
-**Define user attributes**
-user_attributes = {
-    'age': 20,
-    'income': 30000,
-    'department': 'Finance',
-    'spend': 1000
+{
+    "age": 35,
+    "department": "Engineering",
+    "income": 60000,
+    "spend": 15000
 }
 
-**Evaluate the rule**
-result = evaluate_rule(user_attributes)
+## Using the API
+**API Endpoints** : 
+Create Rule :  
+URL: /api/rules   
+Method: POST  
+Description: Creates a new rule.  
+Request Body: JSON object with rule definition.  
 
-print("Eligibility:", result)  # Output: Eligibility: True or False
+Get All Rules:  
+URL: /api/rules  
+Method: GET  
+Description: Retrieves all existing rules.  
+
+Evaluate Rule:  
+URL: /api/rules/evaluate  
+Method: POST  
+Description: Evaluates a rule against the given user attributes.  
+Request Body: JSON object with user attributes. 
+
+Delete Rule :  
+URL: /api/rules/<rule_id>  
+Method: DELETE  
+Description: Deletes a specific rule by ID.  
+
+## Extending the Application
+**Adding New Conditions** : To support additional fields or conditions, update the rule parsing logic in rules.py to include the new operators and fields.
+
+**Improving the UI** : The UI templates can be enhanced using modern front-end libraries such as React or Vue.js for a more interactive user experience.
 
 ## Database Setup: SQLite
 The rule engine application uses SQLite, a lightweight, file-based relational database system. SQLite is well-suited for development and testing environments due to its simplicity and ease of setup. The database is stored in a single file (rules.db), making it easy to manage and transport. SQLite is ideal for smaller projects or embedded applications where a full-fledged database server like PostgreSQL might not be necessary. For larger-scale production environments, switching to a more robust database system would be advisable.
@@ -96,6 +122,11 @@ The rule engine application uses SQLite, a lightweight, file-based relational da
   **Set up the database** : SQLALCHEMY_DATABASE_URI = 'sqlite:///rules.db'
   **Run migrations** : flask db upgrade
   **Start the Flask development server** : flask run  {#output: * Running on http://127.0.0.1:5000}
+
+## Deployment
+**Docker** : Use a Dockerfile to containerize the application for easy deployment.
+**Cloud Services** : Deploy using services like AWS, Google Cloud, or Azure.
+**Web Server Configuration** : Use Nginx or Apache as a reverse proxy with Gunicorn for production deployment.
   
 
 ## Security Measures:
