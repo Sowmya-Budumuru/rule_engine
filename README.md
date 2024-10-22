@@ -43,18 +43,17 @@ rule_engine/
     **evaluate_rule(json_data)** : Evaluates the combined rule against the provided data.
 
 # Usage:
-Usage
-Rule Creation
-Define a Rule: Rules are created with conditional expressions based on user attributes such as age, department, income, and spend.
+## Rule Creation : 
+**Define a Rule** : Rules are created with conditional expressions based on user attributes such as age, department, income, and spend.
 
 Rule Format:
 
-Rules are represented using a JSON-like structure.
-The rule logic uses operators like ==, >, <, AND, OR, etc.
-Example rule:
+Rules are represented using a JSON-like structure.  
+The rule logic uses operators like ==, >, <, AND, OR, etc.  
 
+Example rule:  
 {
-    "condition": "AND",
+    "condition": "AND",    
     "rules": [
         {
             "field": "age",
@@ -68,19 +67,8 @@ Example rule:
         }
     ]
 }
-Evaluating a Rule
-To evaluate a rule, pass the user attributes to the evaluation endpoint. The rule engine will parse the AST representation of the rule and determine if the user meets the conditions.
 
-Example:
 
-json
-Copy code
-{
-    "age": 35,
-    "department": "Engineering",
-    "income": 60000,
-    "spend": 15000
-}
 
 **Define user attributes**
 user_attributes = {
