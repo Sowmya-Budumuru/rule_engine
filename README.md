@@ -105,30 +105,79 @@ URL: /api/rules/<rule_id>
 Method: DELETE  
 Description: Deletes a specific rule by ID.  
 
-## Extending the Application
-**Adding New Conditions** : To support additional fields or conditions, update the rule parsing logic in rules.py to include the new operators and fields.
+## Setting Up
+**Clone the repository**:
 
-**Improving the UI** : The UI templates can be enhanced using modern front-end libraries such as React or Vue.js for a more interactive user experience.
+git clone https://github.com/yourusername/rule_engine.git  
+cd rule_engine
 
-## Database Setup: SQLite
-The rule engine application uses SQLite, a lightweight, file-based relational database system. SQLite is well-suited for development and testing environments due to its simplicity and ease of setup. The database is stored in a single file (rules.db), making it easy to manage and transport. SQLite is ideal for smaller projects or embedded applications where a full-fledged database server like PostgreSQL might not be necessary. For larger-scale production environments, switching to a more robust database system would be advisable.
+**Set up a virtual environment (recommended)**:
+
+python3 -m venv venv  
+source venv/bin/activate    
+
+**Install the dependencies** : pip install -r requirements.txt  
+
+**Configure the environment variables** : Create a .env file in the project root with the following:
+
+DATABASE_URL=sqlite:///rules.db  
+
+**Initialize the database**:  
+
+python database.py
+
+**Run the application**:
+
+python app.py
+
+**Run migrations** : flask db upgrade
+
+ **Start the Flask development server** : flask run  {#output: * Running on http://127.0.0.1:5000}
+
+ ## Design Choices
+ ### Architecture:
+ **3-tier architecture**: The application is divided into three layers—UI, API, and backend—providing modularity and separating concerns effectively.
+ 
+ ### Database Setup : SQLite
+ The rule engine application uses SQLite, a lightweight, file-based relational database system. SQLite is well-suited for development and testing environments due 
+ to its simplicity and ease of setup. The database is stored in a single file (rules.db), making it easy to manage and transport. SQLite is ideal for smaller 
+ projects or embedded applications where a full-fledged database server like PostgreSQL might not be necessary. For larger-scale production environments, 
+ switching to a more robust database system would be advisable. The system can be extended to use other databases like PostgreSQL or MySQL.
+
+ ### Frameworks & Libraries
+ **Flask** : Used for the web API due to its simplicity and flexibility.  
+ **SQLAlchemy** : For ORM-based database management.  
+ **AST (Abstract Syntax Tree)** : Used for representing and evaluating rules, providing a flexible and extensible approach to rule handling.  
+ 
+ ### Trade-offs
+ **SQLite vs. Other Databases**: SQLite is suitable for small to medium projects but may not perform as well with heavy concurrent loads.  
+ **Rule Evaluation** : Using an AST allows for complex rule representation, but may add complexity for users unfamiliar with the concept.  
+
+ ## Dependencies
+ List all required dependencies with a brief description.
+
+   Python 3.8+: Programming language.  
+   Flask: For creating the web application.  
+   SQLAlchemy: For ORM-based database interactions.  
+   AST: Built-in Python library for working with abstract syntax trees.  
+   dotenv: For managing environment variables.  
+   Docker: (Optional) For containerized deployment.   
 
 ## Testing:
   Verified individual rule creation and AST representation.
   Combined rules to ensure the AST reflects the combined logic.
   Evaluated rules using various sample data scenarios.
 
-## Running the application:
-  **Install dependencies** : pip install -r requirements.txt
-  **Set up the database** : SQLALCHEMY_DATABASE_URI = 'sqlite:///rules.db'
-  **Run migrations** : flask db upgrade
-  **Start the Flask development server** : flask run  {#output: * Running on http://127.0.0.1:5000}
-
 ## Deployment  
 **Docker** : Use a Dockerfile to containerize the application for easy deployment.  
 **Cloud Services** : Deploy using services like AWS, Google Cloud, or Azure.  
 **Web Server Configuration** : Use Nginx or Apache as a reverse proxy with Gunicorn for production deployment.  
-  
+
+## Extending the Application
+**Adding New Conditions** : To support additional fields or conditions, update the rule parsing logic in rules.py to include the new operators and fields.
+
+**Improving the UI** : The UI templates can be enhanced using modern front-end libraries such as React or Vue.js for a more interactive user experience.
+
 
 ## Security Measures:  
 **Input Validation** : The application performs validation on user inputs to prevent invalid data entry.  
