@@ -81,25 +81,25 @@ Example:
 }
 
 ## Using the API
-**API Endpoints** : 
-Create Rule :  
+**API Endpoints** :   
+**Create Rule** :  
 URL: /api/rules   
 Method: POST  
 Description: Creates a new rule.  
 Request Body: JSON object with rule definition.  
 
-Get All Rules:  
+**Get All Rules**:  
 URL: /api/rules  
 Method: GET  
 Description: Retrieves all existing rules.  
 
-Evaluate Rule:  
+**Evaluate Rule**:  
 URL: /api/rules/evaluate  
 Method: POST  
 Description: Evaluates a rule against the given user attributes.  
 Request Body: JSON object with user attributes. 
 
-Delete Rule :  
+**Delete Rule** :  
 URL: /api/rules/<rule_id>  
 Method: DELETE  
 Description: Deletes a specific rule by ID.  
@@ -134,7 +134,7 @@ The rule engine application uses SQLite, a lightweight, file-based relational da
 **Data Protection** : Sensitive information is handled securely, and proper authentication should be considered if this application is used in a web environment.
 
 ## Performance Optimizations:
-**Efficient Rule Evaluation** : The rule engine is optimized for quick evaluations by using efficient algorithms to parse and assess rules against user attributes.
+**Efficient Rule Evaluation** : The rule engine is optimized for quick evaluations by using efficient algorithms to parse and assess rules against user attributes.  
 **Caching** : Frequently evaluated rules can be cached to improve performance during repeated assessments.
 
 
